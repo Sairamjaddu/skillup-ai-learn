@@ -2,41 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Skills.do Design System - Educational Platform */
 
 @layer base {
   :root {
+    /* Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 0 0% 20%;
+    
+    /* Skills.do Purple Brand */
+    --primary: 253 71% 60%; /* #673DE6 */
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 253 71% 70%;
+    --primary-dark: 253 71% 50%;
+    
+    /* Cards & UI */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --card-foreground: 0 0% 20%;
+    
+    /* Secondary Colors */
+    --secondary: 220 13% 96%;
+    --secondary-foreground: 0 0% 20%;
+    
+    /* Muted Colors */
+    --muted: 220 13% 95%;
+    --muted-foreground: 0 0% 45%;
+    
+    /* Accent Colors */
+    --accent: 220 13% 95%;
+    --accent-foreground: 0 0% 20%;
+    
+    /* Status Colors */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Borders & Inputs */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 253 71% 60%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(253 71% 60%), hsl(253 71% 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(253 71% 60% / 0.9), hsl(253 71% 50% / 0.95));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 13% 98%));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(253 71% 60% / 0.2);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
+    --shadow-button: 0 4px 15px -3px hsl(253 71% 60% / 0.4);
+    
+    /* Animation Timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +123,65 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+  
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .elegant-shadow {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .button-shadow {
+    box-shadow: var(--shadow-button);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+}
+
+@layer components {
+  .hero-text {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+  
+  .section-title {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary-dark px-6 py-3 rounded-lg font-semibold transition-smooth button-shadow hover:shadow-lg transform hover:-translate-y-1;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-lg font-semibold transition-smooth;
+  }
+  
+  .bento-card {
+    @apply bg-card rounded-xl p-6 card-shadow hover:elegant-shadow transition-smooth hover:-translate-y-2;
+  }
+  
+  .stats-counter {
+    @apply text-3xl md:text-4xl font-bold text-primary;
+  }
+  
+  .course-module {
+    @apply flex items-start space-x-3 p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-smooth;
   }
 }
