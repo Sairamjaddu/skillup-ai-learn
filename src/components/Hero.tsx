@@ -19,7 +19,7 @@ const Hero = () => {
     <section 
       className="min-h-screen flex items-center relative bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/lovable-uploads/25609d3d-4537-48e7-bcc2-5d9ef37c221d.png')",
+        backgroundImage: "url('/lovable-uploads/de80b452-1230-4946-b11a-07e0205cd6bc.png')",
       }}
     >
       {/* Hero Gradient Overlay */}
